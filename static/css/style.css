@@ -1,0 +1,259 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Body themes */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Dark gradient background */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  transition: background 0.5s, color 0.5s;
+}
+
+body.light {
+  /* Light mode gradient */
+  background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
+  color: #000;
+}
+
+/* Dark/Light mode toggle switch */
+.mode-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.theme-label {
+  display: block;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 30px;
+  background-color: #ccc;
+  transition: background 0.4s;
+}
+
+.theme-label .slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+
+#themeSwitch:checked + .theme-label .slider {
+  transform: translateX(30px);
+}
+
+#themeSwitch:checked + .theme-label {
+  background-color: #333;
+}
+
+/* Floating animation */
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Landing page container */
+.landing-container {
+  text-align: center;
+  background-color: rgba(0,0,0,0.6);
+  padding: 50px 40px;
+  border-radius: 15px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: floatUp 0.8s ease-out;
+  transition: background 0.5s, color 0.5s, transform 0.3s, box-shadow 0.3s;
+}
+
+body.light .landing-container {
+  background-color: rgba(255,255,255,0.8);
+  color: #000;
+}
+
+/* Logo and tagline */
+.logo {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.tagline {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #e0e0e0;
+}
+
+body.light .tagline {
+  color: #333;
+}
+
+/* Button container */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Buttons with neon glow */
+.btn {
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Neon glow hover effect */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.1);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+
+.btn:hover::before {
+  top: 0;
+  left: 0;
+}
+
+/* Login button neon */
+.login-btn {
+  background-color: #2575fc;
+  color: #fff;
+  box-shadow: 0 0 10px #2575fc, 0 0 20px #2575fc, 0 0 30px #2575fc;
+}
+
+.login-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 20px #2575fc, 0 0 40px #2575fc, 0 0 60px #2575fc;
+}
+
+/* Signup button neon */
+.signup-btn {
+  background-color: #6a11cb;
+  color: #fff;
+  box-shadow: 0 0 10px #6a11cb, 0 0 20px #6a11cb, 0 0 30px #6a11cb;
+}
+
+.signup-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 20px #6a11cb, 0 0 40px #6a11cb, 0 0 60px #6a11cb;
+}
+
+/* Login/Signup container */
+.login-container {
+  width: 350px;
+  max-width: 90%;
+  background-color: rgba(0,0,0,0.6);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  transition: all 0.3s;
+  animation: floatUp 0.8s ease-out;
+}
+
+body.light .login-container {
+  background-color: rgba(255,255,255,0.9);
+  color: #000;
+}
+
+.login-container h2 {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Login/Signup submit button */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2575fc;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.login-container button:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Back to landing page link */
+.back-landing {
+  margin-top: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+body.light .back-landing {
+  color: #000;
+}
+
+.back-landing a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-landing a:hover {
+  text-decoration: underline;
+}
+
+/* Password eye toggle */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper .eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+body.light .password-wrapper .eye {
+  color: #000;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .landing-container, .login-container {
+    padding: 30px 20px;
+  }
+  .logo { font-size: 36px; }
+  .tagline { font-size: 16px; }
+}

@@ -1,10 +1,42 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>Login</h2>
-<form method="POST">
-  <input type="text" name="username" placeholder="Username" required><br>
-  <input type="password" name="password" placeholder="Password" required><br>
-  <button type="submit">Login</button>
-</form>
-<p>New user? <a href="{{ url_for('register') }}">Register</a></p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinFriend - Login</title>
+  <link rel="stylesheet" href="{{ urf_for('static',filename='css/style.css')}}">
+</head>
+<body>
+  <!-- Dark/Light Mode Toggle -->
+  <div class="mode-toggle">
+    <input type="checkbox" id="themeSwitch" hidden>
+    <label for="themeSwitch" class="theme-label">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- Login Container -->
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter your username" required>
+
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <span id="togglePassword" class="eye"></span>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+    <p id="errorMsg" class="error-msg"></p>
+    <p class="back-landing">
+      <a href="index.html">← Back to Home</a>
+    </p>
+  </div>
+
+  
+  <script src="{{url_for('static',filename='js/script.js')}}"></script>
+</body>
+</html>

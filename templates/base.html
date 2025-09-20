@@ -1,14 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <title>Notes App</title>
+  <title>FinFriend</title>
+  <link rel="stylesheet" href="{{ urf_for('static',filename='css/style.css')}}">
 </head>
 <body>
-  <div class="container">
-    {% block content %}{% endblock %}
+  <!-- Dark/Light Mode Toggle -->
+  <div class="mode-toggle">
+    <input type="checkbox" id="themeSwitch" hidden>
+    <label for="themeSwitch" class="theme-label">
+      <span class="slider"></span>
+    </label>
   </div>
+
+  <!-- Landing container -->
+  <div class="landing-container">
+    <h1 class="logo">FinFriend</h1>
+    <p class="tagline">Finance Made Friendly</p>
+    
+    <div class="btn-container">
+      <a href="login.html" class="btn login-btn">Login</a>
+      <a href="signup.html" class="btn signup-btn">Sign Up</a>
+    </div>
+  </div>
+
+  <script src="{{url_for('static',filename='js/script.js')}}"></script>
 </body>
 </html>
