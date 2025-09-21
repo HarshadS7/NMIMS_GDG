@@ -4,70 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FinFriend Dashboard</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}
+">
 </head>
-<body class="dark">
-
+<body>
   <!-- Sidebar -->
-  <aside class="sidebar" id="sidebar">
-    <h1>FinFriend</h1>
-    <ul>
-      <li><a href="{{ url_for('dashboard') }}"></a>🏠 Home</li>
-      <li>📊 Analytics</li>
-      <li>💳 Expenses</li>
-      <li>💡 Tips</li>
-      <li><a href="{{ url_for('logout') }}>↩ Logout</a></li>
-    </ul>
-
-    <!-- Theme Toggle -->
-    <div class="theme-toggle">
-      <input type="checkbox" id="themeSwitch">
-      <label for="themeSwitch"></label>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>FinFriend</h2>
     </div>
+    <ul class="sidebar-menu">
+      <li>Dashboard</li>
+      <li>Budget</li>
+      <li>Analytics</li>
+      <li>Settings</li>
+    </ul>
   </aside>
 
   <!-- Main Content -->
-  <main class="main-content">
-    <!-- Top Bar with Hamburger -->
-    <header class="topbar">
-      <button id="menuToggle" class="menu-btn">☰</button>
-      <h2>Dashboard</h2>
+  <div class="main-content">
+    <!-- Dark/Light Toggle -->
+    <div class="mode-toggle">
+      <input type="checkbox" id="themeSwitch">
+      <label for="themeSwitch"></label>
+    </div>
+
+    <header>
+      <h1>Welcome, User!</h1>
+      <p>Manage your finances effectively</p>
     </header>
 
-    <!-- Summary Cards -->
-    <section class="cards">
+    <section class="dashboard">
       <div class="card">
-        <h2>Balance</h2>
+        <h2>Total Income</h2>
         <p>$4,500</p>
       </div>
       <div class="card">
-        <h2>Income</h2>
-        <p>$2,800</p>
+        <h2>Total Expenses</h2>
+        <p>$2,300</p>
       </div>
       <div class="card">
-        <h2>Expenses</h2>
-        <p>$1,600</p>
+        <h2>Savings</h2>
+        <p>$2,200</p>
+      </div>
+      <div class="card">
+        <h2>Budget Goal</h2>
+        <p>75% achieved</p>
       </div>
     </section>
+  </div>
 
-    <!-- Charts -->
-    <section class="charts">
-      <canvas id="expenseChart"></canvas>
-      <canvas id="incomeChart"></canvas>
-    </section>
-
-    <!-- Tips -->
-    <section class="tips">
-      <h2>💡 Financial Tips</h2>
-      <div class="tip-grid">
-        <div class="tip-card">Save 20% of your income monthly.</div>
-        <div class="tip-card">Track expenses daily.</div>
-        <div class="tip-card">Invest in diversified funds.</div>
-      </div>
-    </section>
-  </main>
-
-  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+  <script src="{{ url_for('static', filename='dashboard.js') }}
+"></script>
 </body>
 </html>
