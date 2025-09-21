@@ -14,3 +14,10 @@ themeSwitch.addEventListener('change', () => {
     localStorage.setItem('theme', 'dark');
   }
 });
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", () => {
+    // Redirect to the landing/index page
+    window.location.href = "base";
+});
