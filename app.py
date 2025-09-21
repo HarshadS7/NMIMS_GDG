@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from pymongo import MongoClient
 import bcrypt
+import subprocess
+import threading
 
 app = Flask(__name__)
 app.secret_key = "sovneotyhcdobneiwtfhrsdf"
@@ -9,6 +11,9 @@ client = MongoClient("mongodb://localhost:27017/")
 db = client["NMIMS_GDG"]
 users = db["users"]
 notes = db["notes"]
+
+def run_subprocess():
+    subprocess.run(["adk", "web"])
 
 @app.route("/")
 def index():
@@ -58,4 +63,6 @@ def logout():
     return redirect(url_for("login"))
 
 if __name__ == "__main__":
+    #t = threading.Thread(target=run_subprocess, daemon=True)
+    #t.start()
     app.run(debug=True)
