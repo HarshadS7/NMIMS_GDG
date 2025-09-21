@@ -6,7 +6,7 @@ from google.adk.tools import google_search
 
 # Define the agent instance (must be named `agent` for ADK CLI)
 root_agent = Agent(
-    name="finance_funfact",
+    name="finance_agent",
     model="gemini-2.0-flash",
     description="You are an agentic AI that helps plan a user's monthly income efficiently",
     instruction=(
@@ -18,7 +18,7 @@ root_agent = Agent(
     ),
     tools=[google_search]
 )
-
+#monthly income 50000, emi 20000 per month, save 100000, time 6 years
 
 # Example function to query the agent with custom temperature
 async def query_agent(user_query: str, temp: float = 0.7):
