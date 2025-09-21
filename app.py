@@ -13,7 +13,7 @@ notes = db["notes"]
 @app.route("/")
 def index():
     if "user_id" in session:
-        return redirect(url_for("notes_page"))
+        return redirect(url_for("base"))
     return redirect(url_for("login"))
 
 @app.route("/register", methods=["GET", "POST"])
@@ -66,7 +66,7 @@ def notes_page():
 @app.route("/logout")
 def logout():
     session.clear()
-    return redirect(url_for("login"))
+    return redirect(url_for("base"))
 
 if __name__ == "__main__":
     app.run(debug=True)
