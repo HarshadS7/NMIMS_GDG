@@ -13,8 +13,8 @@ notes = db["notes"]
 @app.route("/")
 def index():
     if "user_id" in session:
-        return redirect(url_for("base"))
-    return redirect(url_for("login"))
+        return redirect(url_for("/"))
+    return redirect("/dashboard"))
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -44,29 +44,13 @@ def login():
             return redirect(url_for("notes_page"))
         return "❌ Invalid credentials."
 
-    return render_template("login.html")
+    return render_template("dashboard.html")
 
-@app.route("/notes", methods=["GET", "POST"])
-def notes_page():
-    if "user_id" not in session:
-        return redirect(url_for("login"))
-
-    if request.method == "POST":
-        title = request.form["title"]
-        content = request.form["content"]
-        notes.insert_one({
-            "user_id": session["user_id"],
-            "title": title,
-            "content": content
-        })
-
-    user_notes = list(notes.find({"user_id": session["user_id"]}))
-    return render_template("notes.html", username=session["username"], notes=user_notes)
 
 @app.route("/logout")
 def logout():
     session.clear()
-    return redirect(url_for("base"))
+    return redirect("/")
 
 if __name__ == "__main__":
     app.run(debug=True)
