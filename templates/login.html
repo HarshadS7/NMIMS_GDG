@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FinFriend - Login</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <!-- Dark/Light Mode Toggle -->
@@ -18,7 +18,7 @@
   <!-- Login Container -->
   <div class="login-container">
     <h2>Login</h2>
-    <form action="{{ url_for('login') }}" method="POST">
+    <form method="POST">
       <label for="username">Username</label>
       <input type="text" id="username" placeholder="Enter your username" required>
 
@@ -36,6 +36,6 @@
     </p>
   </div>
 
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
