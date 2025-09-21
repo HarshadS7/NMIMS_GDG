@@ -18,7 +18,7 @@
   <!-- Login Container -->
   <div class="login-container">
     <h2>Login</h2>
-    <form id="loginForm">
+    <form action="{{ url_for('login') }}" method="POST">
       <label for="username">Username</label>
       <input type="text" id="username" placeholder="Enter your username" required>
 
@@ -32,7 +32,7 @@
     </form>
     <p id="errorMsg" class="error-msg"></p>
     <p class="back-landing">
-      <a href="base.html">← Back to Home</a>
+      <a href="{{ url_for('index') }}">← Back to Home</a>
     </p>
   </div>
 

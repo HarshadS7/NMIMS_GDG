@@ -13,8 +13,8 @@ notes = db["notes"]
 @app.route("/")
 def index():
     if "user_id" in session:
-        return redirect(url_for("/"))
-    return redirect("/dashboard"))
+        return redirect(url_for("dashboard"))
+    return redirect(url_for("login"))
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -41,16 +41,21 @@ def login():
         if user and bcrypt.checkpw(password.encode("utf-8"), user["password"]):
             session["user_id"] = str(user["_id"])
             session["username"] = user["username"]
-            return redirect(url_for("notes_page"))
+            return redirect(url_for("dashboard"))
         return "❌ Invalid credentials."
 
-    return render_template("dashboard.html")
+    return render_template("login.html")  
 
+@app.route("/dashboard")
+def dashboard():
+    if "user_id" not in session:
+        return redirect(url_for("login"))
+    return render_template("dashboard.html")
 
 @app.route("/logout")
 def logout():
     session.clear()
-    return redirect("/")
+    return redirect(url_for("login"))
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -13,11 +13,11 @@
   <aside class="sidebar" id="sidebar">
     <h1>FinFriend</h1>
     <ul>
-      <li>🏠 Home</li>
+      <li><a href="{{ url_for('dashboard') }}"></a>🏠 Home</li>
       <li>📊 Analytics</li>
       <li>💳 Expenses</li>
       <li>💡 Tips</li>
-      <li><a href="base.html">↩ Logout</a></li>
+      <li><a href="{{ url_for('logout') }}>↩ Logout</a></li>
     </ul>
 
     <!-- Theme Toggle -->

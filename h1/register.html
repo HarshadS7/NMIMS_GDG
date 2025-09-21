@@ -18,7 +18,7 @@
   <!-- Signup Container -->
   <div class="login-container">
     <h2>Sign Up</h2>
-    <form id="signupForm">
+    <form action="{{ url_for('register') }}" method="POST">
       <label for="username">Username</label>
       <input type="text" id="username" placeholder="Enter your username" required>
 
@@ -34,7 +34,7 @@
       <button type="submit">Sign Up</button>
     </form>
     <p class="back-landing">
-      <a href="base.html">← Back to Home</a>
+      <a href="{{ url_for('index') }}">← Back to Home</a>
     </p>
   </div>
 
