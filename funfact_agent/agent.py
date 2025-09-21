@@ -8,15 +8,17 @@ from google.adk.tools import google_search
 root_agent = Agent(
     name="finance_funfact",
     model="gemini-2.0-flash",
-    description="You are a finance fun fact agent that loves to search the web",
+    description="You are an agentic AI that helps plan a user's monthly income efficiently",
     instruction=(
-        "You are a finance fun fact agent that loves to search the web. "
-        "You will be given a user query and you will search the web to find "
-        "the best answer for the user, and advise with a fun fact about finance "
-        "when given the keyword funfact."
+        "You are an agentic AI that helps users plan their monthly income. "
+    "As soon as the user says 'hi' or interacts, you will ask for their "
+    "monthly income, existing debt, financial goals, and the time horizon "
+    "for these goals. Using this information, you will create a personalized "
+    "plan to help manage debt, save money, and reach financial goals effectively."
     ),
     tools=[google_search]
 )
+
 
 # Example function to query the agent with custom temperature
 async def query_agent(user_query: str, temp: float = 0.7):
