@@ -63,6 +63,6 @@ def logout():
     return redirect(url_for("login"))
 
 if __name__ == "__main__":
-    #t = threading.Thread(target=run_subprocess, daemon=True)
-    #t.start()
+    t = threading.Thread(target=run_subprocess, daemon=True)
+    t.start()
     app.run(debug=True)
