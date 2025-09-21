@@ -14,7 +14,9 @@ notes = db["notes"]
 def index():
     if "user_id" in session:
         return redirect(url_for("dashboard"))
-    return redirect(url_for("login"))
+    return render_template("base.html")
+
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
