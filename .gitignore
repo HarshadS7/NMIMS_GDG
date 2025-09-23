@@ -1,2 +1,2 @@
 .venv
-finance_agent/.env
+*.env
